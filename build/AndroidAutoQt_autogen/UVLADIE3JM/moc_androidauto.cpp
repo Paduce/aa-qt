@@ -156,8 +156,8 @@ void *AndroidAuto::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_AndroidAuto.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "IControlServiceChannelEventHandler"))
-        return static_cast< IControlServiceChannelEventHandler*>(this);
+    if (!strcmp(_clname, "aasdk::channel::control::IControlServiceChannelEventHandler"))
+        return static_cast< aasdk::channel::control::IControlServiceChannelEventHandler*>(this);
     if (!strcmp(_clname, "std::enable_shared_from_this<AndroidAuto>"))
         return static_cast< std::enable_shared_from_this<AndroidAuto>*>(this);
     return QAbstractVideoSurface::qt_metacast(_clname);

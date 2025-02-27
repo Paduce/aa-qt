@@ -65,6 +65,25 @@ void UsbDetectionThread::run()
         int vendorId = LIBUSB_HOTPLUG_MATCH_ANY;  // Any vendor ID
         int productId = LIBUSB_HOTPLUG_MATCH_ANY; // Any product ID
         
+        // Use a static function to workaround C++ lambda limitations with libusb callback
+        static auto hotplugCallback = [](libusb_context *ctx, libusb_device *device, 
+                                        libusb_hotplug_event event, void *userData) -> int {
+            UsbDetectionThread *self = static_cast<UsbDetectionThread*>(userData);
+            
+            struct libusb_device_descriptor desc;
+            libusb_get_device_descriptor(device, &desc);
+            
+            QString deviceId = QString("%1:%2").arg(desc.idVendor, 4, 16, QChar('0')).arg(desc.idProduct, 4, 16, QChar('0'));
+            
+            if (event == LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED) {
+                emit self->deviceConnected(deviceId);
+            } else if (event == LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT) {
+                emit self->deviceDisconnected(deviceId);
+            }
+            
+            return 0;
+        };
+        
         int rc = libusb_hotplug_register_callback(
             m_usbContext,
             static_cast<libusb_hotplug_event>(LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED | LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT),
@@ -72,22 +91,7 @@ void UsbDetectionThread::run()
             vendorId,
             productId,
             LIBUSB_HOTPLUG_MATCH_ANY, // Match any device class
-            [](libusb_context *ctx, libusb_device *device, libusb_hotplug_event event, void *userData) -> int {
-                UsbDetectionThread *self = static_cast<UsbDetectionThread*>(userData);
-                
-                struct libusb_device_descriptor desc;
-                libusb_get_device_descriptor(device, &desc);
-                
-                QString deviceId = QString("%1:%2").arg(desc.idVendor, 4, 16, QChar('0')).arg(desc.idProduct, 4, 16, QChar('0'));
-                
-                if (event == LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED) {
-                    emit self->deviceConnected(deviceId);
-                } else if (event == LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT) {
-                    emit self->deviceDisconnected(deviceId);
-                }
-                
-                return 0;
-            },
+            hotplugCallback,
             this,
             &callbackHandle
         );

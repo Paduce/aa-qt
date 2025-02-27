@@ -17,13 +17,14 @@ struct libusb_device_handle;
 namespace aasdk {
     namespace usb {
         class USBWrapper;
-        class AccessoryModeQueryChain;
+        class AccessoryModeQueryChainFactory;  // Added factory
         class USBHub;
     }
     namespace tcp {
         class TCPWrapper;
     }
     namespace transport {
+        class Transport;  // Use generic base class
         class USBTransport;
         class SSLWrapper;
     }
@@ -36,12 +37,15 @@ namespace aasdk {
     namespace channel {
         namespace control {
             class ControlServiceChannel;
+            class IControlServiceChannelEventHandler;  // Include the actual interface
         }
     }
     namespace proto {
         namespace messages {
             class ServiceDiscoveryRequest;
+            class ServiceDiscoveryResponse;  // Added response
             class AudioFocusRequest;
+            class AudioFocusResponse;  // Added response
             class ShutdownRequest;
             class ShutdownResponse;
             class NavigationFocusRequest;
@@ -55,23 +59,9 @@ namespace aasdk {
     }
 }
 
-// Define the control channel handler interface directly
-class IControlServiceChannelEventHandler {
-public:
-    virtual ~IControlServiceChannelEventHandler() = default;
-    
-    virtual void onServiceDiscoveryRequest(const aasdk::proto::messages::ServiceDiscoveryRequest& request) = 0;
-    virtual void onAudioFocusRequest(const aasdk::proto::messages::AudioFocusRequest& request) = 0;
-    virtual void onShutdownRequest(const aasdk::proto::messages::ShutdownRequest& request) = 0;
-    virtual void onShutdownResponse(const aasdk::proto::messages::ShutdownResponse& response) = 0;
-    virtual void onNavigationFocusRequest(const aasdk::proto::messages::NavigationFocusRequest& request) = 0;
-    virtual void onNavigationFocusResponse(const aasdk::proto::messages::NavigationFocusResponse& response) = 0;
-    virtual void onPingRequest(const aasdk::proto::messages::PingRequest& request) = 0;
-    virtual void onPingResponse(const aasdk::proto::messages::PingResponse& response) = 0;
-    virtual void onChannelError(const aasdk::error::Error& e) = 0;
-};
-
-class AndroidAuto : public QAbstractVideoSurface, public IControlServiceChannelEventHandler, public std::enable_shared_from_this<AndroidAuto>
+class AndroidAuto : public QAbstractVideoSurface, 
+                    public aasdk::channel::control::IControlServiceChannelEventHandler,  // Use the actual interface
+                    public std::enable_shared_from_this<AndroidAuto>
 {
     Q_OBJECT
     Q_PROPERTY(bool connected READ isConnected NOTIFY connectedChanged)
@@ -119,10 +109,9 @@ private:
     std::shared_ptr<boost::asio::io_service::work> m_workLoopKeepAlive;
     boost::asio::io_service::strand m_strand;
     std::shared_ptr<aasdk::usb::USBWrapper> m_usbWrapper;
-    std::shared_ptr<aasdk::usb::AccessoryModeQueryChain> m_queryChain;
     std::shared_ptr<aasdk::usb::USBHub> m_usbHub;
     std::shared_ptr<aasdk::tcp::TCPWrapper> m_tcpWrapper;
-    std::shared_ptr<aasdk::transport::USBTransport> m_transport;
+    std::shared_ptr<aasdk::transport::Transport> m_transport;  // Use base Transport class
     std::shared_ptr<aasdk::transport::SSLWrapper> m_sslWrapper;
     std::shared_ptr<aasdk::messenger::Cryptor> m_cryptor;
     std::shared_ptr<aasdk::messenger::MessageInStream> m_messageInStream;

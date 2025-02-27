@@ -4,7 +4,9 @@
 #include <QObject>
 #include <QThread>
 #include <QString>
-#include <libusb-1.0/libusb.h>
+
+// Use a more system-independent include
+#include <libusb.h>
 
 class UsbDetectionThread : public QThread
 {

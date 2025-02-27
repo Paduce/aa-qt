@@ -75,7 +75,7 @@ AndroidAutoQt_autogen/EWIEGA46WW/qrc_qml.cpp: ../qml/main.qml
 AndroidAutoQt_autogen/EWIEGA46WW/qrc_qml.cpp: ../assets/android_auto_logo.png
 AndroidAutoQt_autogen/EWIEGA46WW/qrc_qml.cpp: /usr/lib/qt5/bin/rcc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pduce/android-auto-qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic RCC for qml.qrc"
-	/usr/bin/cmake -E cmake_autorcc /home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt_autogen.dir/AutoRcc_qml_EWIEGA46WW_Info.json 
+	/usr/bin/cmake -E cmake_autorcc /home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt_autogen.dir/AutoRcc_qml_EWIEGA46WW_Info.json Debug
 
 CMakeFiles/AndroidAutoQt.dir/AndroidAutoQt_autogen/mocs_compilation.cpp.o: CMakeFiles/AndroidAutoQt.dir/flags.make
 CMakeFiles/AndroidAutoQt.dir/AndroidAutoQt_autogen/mocs_compilation.cpp.o: AndroidAutoQt_autogen/mocs_compilation.cpp

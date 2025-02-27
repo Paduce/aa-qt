@@ -59,7 +59,6 @@
 #define __FLT64X_MAX_10_EXP__ 4932
 #define __cpp_if_constexpr 201606L
 #define __LDBL_IS_IEC_60559__ 2
-#define QT_NO_DEBUG 1
 #define __FLT64X_HAS_QUIET_NAN__ 1
 #define __UINT_LEAST8_MAX__ 0xff
 #define __GCC_ATOMIC_BOOL_LOCK_FREE 2
@@ -298,6 +297,7 @@
 #define __FLT128_MAX__ 1.18973149535723176508575932662800702e+4932F128
 #define __INTPTR_MAX__ 0x7fffffffffffffffL
 #define __cpp_sized_deallocation 201309L
+#define QT_QML_DEBUG 1
 #define __cpp_guaranteed_copy_elision 201606L
 #define linux 1
 #define __FLT64_HAS_QUIET_NAN__ 1

@@ -68,7 +68,7 @@ include CMakeFiles/AndroidAutoQt_autogen.dir/progress.make
 
 CMakeFiles/AndroidAutoQt_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pduce/android-auto-qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target AndroidAutoQt"
-	/usr/bin/cmake -E cmake_autogen /home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt_autogen.dir/AutogenInfo.json ""
+	/usr/bin/cmake -E cmake_autogen /home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt_autogen.dir/AutogenInfo.json Debug
 
 AndroidAutoQt_autogen: CMakeFiles/AndroidAutoQt_autogen
 AndroidAutoQt_autogen: CMakeFiles/AndroidAutoQt_autogen.dir/build.make

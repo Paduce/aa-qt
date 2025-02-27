@@ -29,8 +29,7 @@ set(AASDK_INCLUDE_DIRS "/usr/local/include")
 set(AASDK_LIBRARIES "/usr/local/lib/libaasdk.so")
 set(AASDK_PROTO_LIBRARIES "/usr/local/lib/libaasdk_proto.so")
 
-# Check for aasdk protobuf message files
-# This is critical for finding the right proto message paths
+# Check for aasdk protobuf message files - add more potential locations
 file(GLOB_RECURSE AASDK_PROTO_FILES 
     "/usr/local/include/aasdk/Proto/*.pb.h"
     "/usr/local/include/aasdk/Proto/*/*.pb.h"
@@ -38,6 +37,10 @@ file(GLOB_RECURSE AASDK_PROTO_FILES
     "/usr/local/include/aasdk/proto/*/*.pb.h"
     "/usr/local/include/aasdk_proto/*.pb.h"
     "/usr/local/include/aasdk_proto/*/*.pb.h"
+    # Add additional search paths
+    "/usr/include/aasdk/Proto/*.pb.h"
+    "/usr/include/aasdk/proto/*.pb.h"
+    "/usr/include/aasdk_proto/*.pb.h"
 )
 
 if(AASDK_PROTO_FILES)
@@ -48,6 +51,14 @@ if(AASDK_PROTO_FILES)
     message(STATUS "Proto parent dir: ${PROTO_PARENT_DIR}")
 else()
     message(WARNING "No protobuf message files found in aasdk include directories!")
+    # Add fallback paths to check
+    message(STATUS "Checking for aasdk installation...")
+    execute_process(
+        COMMAND find /usr -name "aasdk_proto" -type d
+        OUTPUT_VARIABLE AASDK_PROTO_SEARCH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    message(STATUS "Additional proto locations: ${AASDK_PROTO_SEARCH}")
 endif()
 
 # Check if aasdk libraries exist
@@ -77,9 +88,14 @@ set(PROJECT_SOURCES
 # Create executable
 add_executable(AndroidAutoQt ${PROJECT_SOURCES})
 
-# Find where libusb.h actually is on this system
+# Find where libusb.h actually is on this system - expand search paths
 find_path(LIBUSB_HEADER_DIR libusb.h
-    PATHS /usr/include /usr/local/include /usr/include/libusb-1.0 /usr/local/include/libusb-1.0
+    PATHS 
+    /usr/include 
+    /usr/local/include 
+    /usr/include/libusb-1.0 
+    /usr/local/include/libusb-1.0
+    ${LIBUSB_INCLUDE_DIRS}
     DOC "Directory containing libusb.h")
 
 if(NOT LIBUSB_HEADER_DIR)
@@ -100,7 +116,10 @@ target_include_directories(AndroidAutoQt
     /usr/local/include
     /usr/local/include/aasdk
     /usr/local/include/aasdk_proto
+    /usr/include/aasdk
+    /usr/include/aasdk_proto
     ${PROTO_PARENT_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
 # Link libraries - order matters for resolving dependencies
@@ -117,6 +136,7 @@ target_link_libraries(AndroidAutoQt
     OpenSSL::Crypto
     ${AASDK_PROTO_LIBRARIES}
     ${AASDK_LIBRARIES}
+    pthread  # Explicitly add pthread for thread support
 )
 
 # Define preprocessor macros
