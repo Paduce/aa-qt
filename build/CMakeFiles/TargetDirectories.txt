@@ -1,0 +1,8 @@
+/home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt.dir
+/home/pduce/android-auto-qt/build/CMakeFiles/edit_cache.dir
+/home/pduce/android-auto-qt/build/CMakeFiles/rebuild_cache.dir
+/home/pduce/android-auto-qt/build/CMakeFiles/list_install_components.dir
+/home/pduce/android-auto-qt/build/CMakeFiles/install.dir
+/home/pduce/android-auto-qt/build/CMakeFiles/install/local.dir
+/home/pduce/android-auto-qt/build/CMakeFiles/install/strip.dir
+/home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt_autogen.dir

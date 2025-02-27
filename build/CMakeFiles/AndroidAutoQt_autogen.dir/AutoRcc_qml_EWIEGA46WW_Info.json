@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "/home/pduce/android-auto-qt/build/AndroidAutoQt_autogen",
+	"CMAKE_BINARY_DIR" : "/home/pduce/android-auto-qt/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/pduce/android-auto-qt/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/pduce/android-auto-qt",
+	"CMAKE_SOURCE_DIR" : "/home/pduce/android-auto-qt",
+	"INCLUDE_DIR" : "/home/pduce/android-auto-qt/build/AndroidAutoQt_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/pduce/android-auto-qt/qml/main.qml",
+		"/home/pduce/android-auto-qt/assets/android_auto_logo.png"
+	],
+	"LOCK_FILE" : "/home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt_autogen.dir/AutoRcc_qml_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "qml" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_qml.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/pduce/android-auto-qt/build/CMakeFiles/AndroidAutoQt_autogen.dir/AutoRcc_qml_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/pduce/android-auto-qt/qml.qrc",
+	"VERBOSITY" : 0
+}

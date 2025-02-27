@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>assets/android_auto_logo.png</file>
+    </qresource>
+</RCC>
