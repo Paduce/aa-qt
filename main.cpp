@@ -16,21 +16,18 @@ int main(int argc, char *argv[])
     // Create USB detector
     UsbDetector usbDetector;
     
-    // Create Android Auto interface - use shared_ptr for proper shared_from_this() usage
-    auto androidAuto = std::make_shared<AndroidAuto>();
+    // Create Android Auto interface
+    AndroidAuto androidAuto;
     
     // Connect USB detection to Android Auto
     QObject::connect(&usbDetector, &UsbDetector::deviceConnected,
-                     androidAuto.get(), &AndroidAuto::onDeviceConnected);
+                     &androidAuto, &AndroidAuto::onDeviceConnected);
     QObject::connect(&usbDetector, &UsbDetector::deviceDisconnected,
-                     androidAuto.get(), &AndroidAuto::onDeviceDisconnected);
+                     &androidAuto, &AndroidAuto::onDeviceDisconnected);
     
     // Expose our C++ classes to QML
     engine.rootContext()->setContextProperty("usbDetector", &usbDetector);
-    engine.rootContext()->setContextProperty("androidAuto", androidAuto.get());
-
-    // Store the shared_ptr to keep AndroidAuto alive
-    app.setProperty("androidAutoManager", QVariant::fromValue<void*>(androidAuto.get()));
+    engine.rootContext()->setContextProperty("androidAuto", &androidAuto);
 
     const QUrl url(QStringLiteral("qrc:/qml/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

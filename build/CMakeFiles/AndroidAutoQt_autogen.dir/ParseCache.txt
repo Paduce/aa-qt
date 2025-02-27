@@ -278,6 +278,7 @@
  mdp:/usr/include/asm-generic/errno.h
  mdp:/usr/include/asm-generic/ioctl.h
  mdp:/usr/include/asm-generic/ioctls.h
+ mdp:/usr/include/asm-generic/param.h
  mdp:/usr/include/asm-generic/posix_types.h
  mdp:/usr/include/asm-generic/socket.h
  mdp:/usr/include/asm-generic/sockios.h
@@ -1094,6 +1095,7 @@
  mdp:/usr/include/boost/type_traits/is_same.hpp
  mdp:/usr/include/boost/type_traits/remove_cv.hpp
  mdp:/usr/include/boost/version.hpp
+ mdp:/usr/include/byteswap.h
  mdp:/usr/include/c++/11/algorithm
  mdp:/usr/include/c++/11/any
  mdp:/usr/include/c++/11/array
@@ -1175,10 +1177,12 @@
  mdp:/usr/include/c++/11/bits/stl_list.h
  mdp:/usr/include/c++/11/bits/stl_map.h
  mdp:/usr/include/c++/11/bits/stl_multimap.h
+ mdp:/usr/include/c++/11/bits/stl_multiset.h
  mdp:/usr/include/c++/11/bits/stl_numeric.h
  mdp:/usr/include/c++/11/bits/stl_pair.h
  mdp:/usr/include/c++/11/bits/stl_raw_storage_iter.h
  mdp:/usr/include/c++/11/bits/stl_relops.h
+ mdp:/usr/include/c++/11/bits/stl_set.h
  mdp:/usr/include/c++/11/bits/stl_tempbuf.h
  mdp:/usr/include/c++/11/bits/stl_tree.h
  mdp:/usr/include/c++/11/bits/stl_uninitialized.h
@@ -1227,6 +1231,7 @@
  mdp:/usr/include/c++/11/initializer_list
  mdp:/usr/include/c++/11/ios
  mdp:/usr/include/c++/11/iosfwd
+ mdp:/usr/include/c++/11/iostream
  mdp:/usr/include/c++/11/istream
  mdp:/usr/include/c++/11/iterator
  mdp:/usr/include/c++/11/limits
@@ -1242,6 +1247,7 @@
  mdp:/usr/include/c++/11/pstl/glue_algorithm_defs.h
  mdp:/usr/include/c++/11/pstl/glue_memory_defs.h
  mdp:/usr/include/c++/11/pstl/glue_numeric_defs.h
+ mdp:/usr/include/c++/11/set
  mdp:/usr/include/c++/11/sstream
  mdp:/usr/include/c++/11/stdexcept
  mdp:/usr/include/c++/11/streambuf
@@ -1265,6 +1271,7 @@
  mdp:/usr/include/c++/11/type_traits
  mdp:/usr/include/c++/11/typeinfo
  mdp:/usr/include/c++/11/unordered_map
+ mdp:/usr/include/c++/11/unordered_set
  mdp:/usr/include/c++/11/utility
  mdp:/usr/include/c++/11/vector
  mdp:/usr/include/ctype.h
@@ -1273,11 +1280,57 @@
  mdp:/usr/include/fcntl.h
  mdp:/usr/include/features-time64.h
  mdp:/usr/include/features.h
+ mdp:/usr/include/google/protobuf/any.h
+ mdp:/usr/include/google/protobuf/arena.h
+ mdp:/usr/include/google/protobuf/arena_impl.h
+ mdp:/usr/include/google/protobuf/arenastring.h
+ mdp:/usr/include/google/protobuf/descriptor.h
+ mdp:/usr/include/google/protobuf/extension_set.h
+ mdp:/usr/include/google/protobuf/generated_enum_reflection.h
+ mdp:/usr/include/google/protobuf/generated_enum_util.h
+ mdp:/usr/include/google/protobuf/generated_message_reflection.h
+ mdp:/usr/include/google/protobuf/generated_message_table_driven.h
+ mdp:/usr/include/google/protobuf/generated_message_util.h
+ mdp:/usr/include/google/protobuf/has_bits.h
+ mdp:/usr/include/google/protobuf/implicit_weak_message.h
+ mdp:/usr/include/google/protobuf/inlined_string_field.h
+ mdp:/usr/include/google/protobuf/io/coded_stream.h
+ mdp:/usr/include/google/protobuf/io/zero_copy_stream.h
+ mdp:/usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h
+ mdp:/usr/include/google/protobuf/map.h
+ mdp:/usr/include/google/protobuf/map_entry_lite.h
+ mdp:/usr/include/google/protobuf/map_field_lite.h
+ mdp:/usr/include/google/protobuf/map_type_handler.h
+ mdp:/usr/include/google/protobuf/message.h
+ mdp:/usr/include/google/protobuf/message_lite.h
+ mdp:/usr/include/google/protobuf/metadata_lite.h
+ mdp:/usr/include/google/protobuf/parse_context.h
+ mdp:/usr/include/google/protobuf/port.h
+ mdp:/usr/include/google/protobuf/port_def.inc
+ mdp:/usr/include/google/protobuf/port_undef.inc
+ mdp:/usr/include/google/protobuf/repeated_field.h
+ mdp:/usr/include/google/protobuf/stubs/callback.h
+ mdp:/usr/include/google/protobuf/stubs/casts.h
+ mdp:/usr/include/google/protobuf/stubs/common.h
+ mdp:/usr/include/google/protobuf/stubs/fastmem.h
+ mdp:/usr/include/google/protobuf/stubs/hash.h
+ mdp:/usr/include/google/protobuf/stubs/logging.h
+ mdp:/usr/include/google/protobuf/stubs/macros.h
+ mdp:/usr/include/google/protobuf/stubs/mutex.h
+ mdp:/usr/include/google/protobuf/stubs/once.h
+ mdp:/usr/include/google/protobuf/stubs/platform_macros.h
+ mdp:/usr/include/google/protobuf/stubs/port.h
+ mdp:/usr/include/google/protobuf/stubs/stl_util.h
+ mdp:/usr/include/google/protobuf/stubs/stringpiece.h
+ mdp:/usr/include/google/protobuf/stubs/strutil.h
+ mdp:/usr/include/google/protobuf/unknown_field_set.h
+ mdp:/usr/include/google/protobuf/wire_format_lite.h
  mdp:/usr/include/limits.h
  mdp:/usr/include/linux/errno.h
  mdp:/usr/include/linux/falloc.h
  mdp:/usr/include/linux/ioctl.h
  mdp:/usr/include/linux/limits.h
+ mdp:/usr/include/linux/param.h
  mdp:/usr/include/linux/posix_types.h
  mdp:/usr/include/linux/stddef.h
  mdp:/usr/include/linux/version.h
@@ -1307,6 +1360,7 @@
  mdp:/usr/include/x86_64-linux-gnu/asm/errno.h
  mdp:/usr/include/x86_64-linux-gnu/asm/ioctl.h
  mdp:/usr/include/x86_64-linux-gnu/asm/ioctls.h
+ mdp:/usr/include/x86_64-linux-gnu/asm/param.h
  mdp:/usr/include/x86_64-linux-gnu/asm/posix_types.h
  mdp:/usr/include/x86_64-linux-gnu/asm/posix_types_64.h
  mdp:/usr/include/x86_64-linux-gnu/asm/socket.h
@@ -1337,6 +1391,7 @@
  mdp:/usr/include/x86_64-linux-gnu/bits/locale.h
  mdp:/usr/include/x86_64-linux-gnu/bits/long-double.h
  mdp:/usr/include/x86_64-linux-gnu/bits/netdb.h
+ mdp:/usr/include/x86_64-linux-gnu/bits/param.h
  mdp:/usr/include/x86_64-linux-gnu/bits/poll.h
  mdp:/usr/include/x86_64-linux-gnu/bits/posix1_lim.h
  mdp:/usr/include/x86_64-linux-gnu/bits/posix2_lim.h
@@ -1537,6 +1592,7 @@
  mdp:/usr/include/x86_64-linux-gnu/sys/epoll.h
  mdp:/usr/include/x86_64-linux-gnu/sys/eventfd.h
  mdp:/usr/include/x86_64-linux-gnu/sys/ioctl.h
+ mdp:/usr/include/x86_64-linux-gnu/sys/param.h
  mdp:/usr/include/x86_64-linux-gnu/sys/poll.h
  mdp:/usr/include/x86_64-linux-gnu/sys/select.h
  mdp:/usr/include/x86_64-linux-gnu/sys/socket.h
@@ -1550,3 +1606,18 @@
  mdp:/usr/include/x86_64-linux-gnu/sys/un.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h
+ mdp:/usr/local/include/aasdk/Channel/Control/IControlServiceChannelEventHandler.hpp
+ mdp:/usr/local/include/aasdk/Common/Data.hpp
+ mdp:/usr/local/include/aasdk/Error/Error.hpp
+ mdp:/usr/local/include/aasdk/Error/ErrorCode.hpp
+ mdp:/usr/local/include/aasdk_proto/AudioFocusRequestMessage.pb.h
+ mdp:/usr/local/include/aasdk_proto/AudioFocusTypeEnum.pb.h
+ mdp:/usr/local/include/aasdk_proto/NavigationFocusRequestMessage.pb.h
+ mdp:/usr/local/include/aasdk_proto/PingRequestMessage.pb.h
+ mdp:/usr/local/include/aasdk_proto/PingResponseMessage.pb.h
+ mdp:/usr/local/include/aasdk_proto/ServiceDiscoveryRequestMessage.pb.h
+ mdp:/usr/local/include/aasdk_proto/ShutdownReasonEnum.pb.h
+ mdp:/usr/local/include/aasdk_proto/ShutdownRequestMessage.pb.h
+ mdp:/usr/local/include/aasdk_proto/ShutdownResponseMessage.pb.h
+ mdp:/usr/local/include/aasdk_proto/VersionResponseStatusEnum.pb.h
+ mdp:/usr/local/include/aasdk_proto/VoiceSessionRequestMessage.pb.h

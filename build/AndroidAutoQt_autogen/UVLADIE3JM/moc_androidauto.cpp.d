@@ -7,6 +7,7 @@
   /usr/include/asm-generic/errno.h \
   /usr/include/asm-generic/ioctl.h \
   /usr/include/asm-generic/ioctls.h \
+  /usr/include/asm-generic/param.h \
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/socket.h \
   /usr/include/asm-generic/sockios.h \
@@ -823,6 +824,7 @@
   /usr/include/boost/type_traits/is_same.hpp \
   /usr/include/boost/type_traits/remove_cv.hpp \
   /usr/include/boost/version.hpp \
+  /usr/include/byteswap.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/any \
   /usr/include/c++/11/array \
@@ -904,10 +906,12 @@
   /usr/include/c++/11/bits/stl_list.h \
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/bits/stl_multiset.h \
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_set.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
   /usr/include/c++/11/bits/stl_tree.h \
   /usr/include/c++/11/bits/stl_uninitialized.h \
@@ -956,6 +960,7 @@
   /usr/include/c++/11/initializer_list \
   /usr/include/c++/11/ios \
   /usr/include/c++/11/iosfwd \
+  /usr/include/c++/11/iostream \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/iterator \
   /usr/include/c++/11/limits \
@@ -971,6 +976,7 @@
   /usr/include/c++/11/pstl/glue_algorithm_defs.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
+  /usr/include/c++/11/set \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/stdexcept \
   /usr/include/c++/11/streambuf \
@@ -994,6 +1000,7 @@
   /usr/include/c++/11/type_traits \
   /usr/include/c++/11/typeinfo \
   /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/unordered_set \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/vector \
   /usr/include/ctype.h \
@@ -1002,11 +1009,57 @@
   /usr/include/fcntl.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/google/protobuf/any.h \
+  /usr/include/google/protobuf/arena.h \
+  /usr/include/google/protobuf/arena_impl.h \
+  /usr/include/google/protobuf/arenastring.h \
+  /usr/include/google/protobuf/descriptor.h \
+  /usr/include/google/protobuf/extension_set.h \
+  /usr/include/google/protobuf/generated_enum_reflection.h \
+  /usr/include/google/protobuf/generated_enum_util.h \
+  /usr/include/google/protobuf/generated_message_reflection.h \
+  /usr/include/google/protobuf/generated_message_table_driven.h \
+  /usr/include/google/protobuf/generated_message_util.h \
+  /usr/include/google/protobuf/has_bits.h \
+  /usr/include/google/protobuf/implicit_weak_message.h \
+  /usr/include/google/protobuf/inlined_string_field.h \
+  /usr/include/google/protobuf/io/coded_stream.h \
+  /usr/include/google/protobuf/io/zero_copy_stream.h \
+  /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
+  /usr/include/google/protobuf/map.h \
+  /usr/include/google/protobuf/map_entry_lite.h \
+  /usr/include/google/protobuf/map_field_lite.h \
+  /usr/include/google/protobuf/map_type_handler.h \
+  /usr/include/google/protobuf/message.h \
+  /usr/include/google/protobuf/message_lite.h \
+  /usr/include/google/protobuf/metadata_lite.h \
+  /usr/include/google/protobuf/parse_context.h \
+  /usr/include/google/protobuf/port.h \
+  /usr/include/google/protobuf/port_def.inc \
+  /usr/include/google/protobuf/port_undef.inc \
+  /usr/include/google/protobuf/repeated_field.h \
+  /usr/include/google/protobuf/stubs/callback.h \
+  /usr/include/google/protobuf/stubs/casts.h \
+  /usr/include/google/protobuf/stubs/common.h \
+  /usr/include/google/protobuf/stubs/fastmem.h \
+  /usr/include/google/protobuf/stubs/hash.h \
+  /usr/include/google/protobuf/stubs/logging.h \
+  /usr/include/google/protobuf/stubs/macros.h \
+  /usr/include/google/protobuf/stubs/mutex.h \
+  /usr/include/google/protobuf/stubs/once.h \
+  /usr/include/google/protobuf/stubs/platform_macros.h \
+  /usr/include/google/protobuf/stubs/port.h \
+  /usr/include/google/protobuf/stubs/stl_util.h \
+  /usr/include/google/protobuf/stubs/stringpiece.h \
+  /usr/include/google/protobuf/stubs/strutil.h \
+  /usr/include/google/protobuf/unknown_field_set.h \
+  /usr/include/google/protobuf/wire_format_lite.h \
   /usr/include/limits.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/falloc.h \
   /usr/include/linux/ioctl.h \
   /usr/include/linux/limits.h \
+  /usr/include/linux/param.h \
   /usr/include/linux/posix_types.h \
   /usr/include/linux/stddef.h \
   /usr/include/linux/version.h \
@@ -1036,6 +1089,7 @@
   /usr/include/x86_64-linux-gnu/asm/errno.h \
   /usr/include/x86_64-linux-gnu/asm/ioctl.h \
   /usr/include/x86_64-linux-gnu/asm/ioctls.h \
+  /usr/include/x86_64-linux-gnu/asm/param.h \
   /usr/include/x86_64-linux-gnu/asm/posix_types.h \
   /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
   /usr/include/x86_64-linux-gnu/asm/socket.h \
@@ -1066,6 +1120,7 @@
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/bits/netdb.h \
+  /usr/include/x86_64-linux-gnu/bits/param.h \
   /usr/include/x86_64-linux-gnu/bits/poll.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
@@ -1266,6 +1321,7 @@
   /usr/include/x86_64-linux-gnu/sys/epoll.h \
   /usr/include/x86_64-linux-gnu/sys/eventfd.h \
   /usr/include/x86_64-linux-gnu/sys/ioctl.h \
+  /usr/include/x86_64-linux-gnu/sys/param.h \
   /usr/include/x86_64-linux-gnu/sys/poll.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/socket.h \
@@ -1278,4 +1334,19 @@
   /usr/include/x86_64-linux-gnu/sys/uio.h \
   /usr/include/x86_64-linux-gnu/sys/un.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+  /usr/local/include/aasdk/Channel/Control/IControlServiceChannelEventHandler.hpp \
+  /usr/local/include/aasdk/Common/Data.hpp \
+  /usr/local/include/aasdk/Error/Error.hpp \
+  /usr/local/include/aasdk/Error/ErrorCode.hpp \
+  /usr/local/include/aasdk_proto/AudioFocusRequestMessage.pb.h \
+  /usr/local/include/aasdk_proto/AudioFocusTypeEnum.pb.h \
+  /usr/local/include/aasdk_proto/NavigationFocusRequestMessage.pb.h \
+  /usr/local/include/aasdk_proto/PingRequestMessage.pb.h \
+  /usr/local/include/aasdk_proto/PingResponseMessage.pb.h \
+  /usr/local/include/aasdk_proto/ServiceDiscoveryRequestMessage.pb.h \
+  /usr/local/include/aasdk_proto/ShutdownReasonEnum.pb.h \
+  /usr/local/include/aasdk_proto/ShutdownRequestMessage.pb.h \
+  /usr/local/include/aasdk_proto/ShutdownResponseMessage.pb.h \
+  /usr/local/include/aasdk_proto/VersionResponseStatusEnum.pb.h \
+  /usr/local/include/aasdk_proto/VoiceSessionRequestMessage.pb.h

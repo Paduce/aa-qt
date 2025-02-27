@@ -10,57 +10,59 @@
 #include <boost/asio.hpp>
 #include <thread>
 
+// Include the actual header for IControlServiceChannelEventHandler
+#include <aasdk/Channel/Control/IControlServiceChannelEventHandler.hpp>
+
 // Forward declaration for libusb
 struct libusb_device_handle;
 
-// Forward declarations for aasdk types to avoid include errors
 namespace aasdk {
     namespace usb {
+        class IUSBWrapper;
         class USBWrapper;
-        class AccessoryModeQueryChainFactory;  // Added factory
+        class IAccessoryModeQueryFactory;
+        class AccessoryModeQueryFactory;
+        class IAccessoryModeQueryChainFactory;
+        class AccessoryModeQueryChainFactory;
+        class IUSBHub;
         class USBHub;
+        class IConnectedAccessoriesEnumerator;
+        class ConnectedAccessoriesEnumerator;
     }
     namespace tcp {
+        class ITCPWrapper;
         class TCPWrapper;
     }
     namespace transport {
-        class Transport;  // Use generic base class
+        class ITransport;
         class USBTransport;
+        class ISSLWrapper;
         class SSLWrapper;
     }
     namespace messenger {
+        class ICryptor;
         class Cryptor;
+        class IMessageInStream;
         class MessageInStream;
+        class IMessageOutStream;
         class MessageOutStream;
+        class IMessenger;
         class Messenger;
     }
-    namespace channel {
-        namespace control {
-            class ControlServiceChannel;
-            class IControlServiceChannelEventHandler;  // Include the actual interface
-        }
-    }
-    namespace proto {
-        namespace messages {
-            class ServiceDiscoveryRequest;
-            class ServiceDiscoveryResponse;  // Added response
-            class AudioFocusRequest;
-            class AudioFocusResponse;  // Added response
-            class ShutdownRequest;
-            class ShutdownResponse;
-            class NavigationFocusRequest;
-            class NavigationFocusResponse;
-            class PingRequest;
-            class PingResponse;
-        }
-    }
-    namespace error {
-        class Error;
+    namespace io {
+        template<typename ReplyType>
+        class IPromise;
+        
+        template<typename ReplyType>
+        using Promise = IPromise<ReplyType>;
+        
+        template<typename ReplyType>
+        using PromisePtr = std::shared_ptr<Promise<ReplyType>>;
     }
 }
 
 class AndroidAuto : public QAbstractVideoSurface, 
-                    public aasdk::channel::control::IControlServiceChannelEventHandler,  // Use the actual interface
+                    public aasdk::channel::control::IControlServiceChannelEventHandler,
                     public std::enable_shared_from_this<AndroidAuto>
 {
     Q_OBJECT
@@ -80,14 +82,22 @@ public:
     void stop() override;
     
     // Control channel event handlers
-    void onServiceDiscoveryRequest(const aasdk::proto::messages::ServiceDiscoveryRequest& request) override;
-    void onAudioFocusRequest(const aasdk::proto::messages::AudioFocusRequest& request) override;
-    void onShutdownRequest(const aasdk::proto::messages::ShutdownRequest& request) override;
-    void onShutdownResponse(const aasdk::proto::messages::ShutdownResponse& response) override;
-    void onNavigationFocusRequest(const aasdk::proto::messages::NavigationFocusRequest& request) override;
-    void onNavigationFocusResponse(const aasdk::proto::messages::NavigationFocusResponse& response) override;
-    void onPingRequest(const aasdk::proto::messages::PingRequest& request) override;
-    void onPingResponse(const aasdk::proto::messages::PingResponse& response) override;
+    void onServiceDiscoveryRequest(const aasdk::proto::messages::ServiceDiscoveryRequest& request,
+                                 aasdk::messenger::Timestamp::value_type timestamp) override;
+    void onAudioFocusRequest(const aasdk::proto::messages::AudioFocusRequest& request,
+                           aasdk::messenger::Timestamp::value_type timestamp) override;
+    void onShutdownRequest(const aasdk::proto::messages::ShutdownRequest& request,
+                         aasdk::messenger::Timestamp::value_type timestamp) override;
+    void onShutdownResponse(const aasdk::proto::messages::ShutdownResponse& response,
+                          aasdk::messenger::Timestamp::value_type timestamp) override;
+    void onNavigationFocusRequest(const aasdk::proto::messages::NavigationFocusRequest& request,
+                                aasdk::messenger::Timestamp::value_type timestamp) override;
+    void onNavigationFocusResponse(const aasdk::proto::messages::NavigationFocusResponse& response,
+                                 aasdk::messenger::Timestamp::value_type timestamp) override;
+    void onPingRequest(const aasdk::proto::messages::PingRequest& request,
+                     aasdk::messenger::Timestamp::value_type timestamp) override;
+    void onPingResponse(const aasdk::proto::messages::PingResponse& response,
+                      aasdk::messenger::Timestamp::value_type timestamp) override;
     void onChannelError(const aasdk::error::Error& e) override;
     
 public slots:
@@ -108,16 +118,16 @@ private:
     boost::asio::io_service m_ioService;
     std::shared_ptr<boost::asio::io_service::work> m_workLoopKeepAlive;
     boost::asio::io_service::strand m_strand;
-    std::shared_ptr<aasdk::usb::USBWrapper> m_usbWrapper;
-    std::shared_ptr<aasdk::usb::USBHub> m_usbHub;
-    std::shared_ptr<aasdk::tcp::TCPWrapper> m_tcpWrapper;
-    std::shared_ptr<aasdk::transport::Transport> m_transport;  // Use base Transport class
-    std::shared_ptr<aasdk::transport::SSLWrapper> m_sslWrapper;
-    std::shared_ptr<aasdk::messenger::Cryptor> m_cryptor;
-    std::shared_ptr<aasdk::messenger::MessageInStream> m_messageInStream;
-    std::shared_ptr<aasdk::messenger::MessageOutStream> m_messageOutStream;
-    std::shared_ptr<aasdk::messenger::Messenger> m_messenger;
-    std::shared_ptr<aasdk::channel::control::ControlServiceChannel> m_controlServiceChannel;
+    std::shared_ptr<aasdk::usb::IUSBWrapper> m_usbWrapper;
+    std::shared_ptr<aasdk::usb::IUSBHub> m_usbHub;
+    std::shared_ptr<aasdk::tcp::ITCPWrapper> m_tcpWrapper;
+    std::shared_ptr<aasdk::transport::ITransport> m_transport;
+    std::shared_ptr<aasdk::transport::ISSLWrapper> m_sslWrapper;
+    std::shared_ptr<aasdk::messenger::ICryptor> m_cryptor;
+    std::shared_ptr<aasdk::messenger::IMessageInStream> m_messageInStream;
+    std::shared_ptr<aasdk::messenger::IMessageOutStream> m_messageOutStream;
+    std::shared_ptr<aasdk::messenger::IMessenger> m_messenger;
+    std::shared_ptr<aasdk::channel::control::IControlServiceChannel> m_controlServiceChannel;
     
     std::thread m_ioServiceThread;
     
@@ -126,6 +136,10 @@ private:
     void startIOServiceThread();
     void stopIOServiceThread();
     void handleUSBDevice(std::shared_ptr<libusb_device_handle> deviceHandle);
+    
+    // Promise handlers
+    void onEnumerateResult(std::shared_ptr<libusb_device_handle> handle);
+    void onUSBHubResult(std::shared_ptr<libusb_device_handle> handle);
 
 private slots:
     void simulateFrame();

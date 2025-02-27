@@ -1184,6 +1184,77 @@ CMakeFiles/AndroidAutoQt.dir/AndroidAutoQt_autogen/mocs_compilation.cpp.o: \
  /usr/include/boost/asio/write_at.hpp \
  /usr/include/boost/asio/impl/write_at.hpp /usr/include/c++/11/thread \
  /usr/include/c++/11/bits/this_thread_sleep.h \
+ /usr/local/include/aasdk/Channel/Control/IControlServiceChannelEventHandler.hpp \
+ /usr/local/include/aasdk/Error/Error.hpp \
+ /usr/local/include/aasdk/Error/ErrorCode.hpp \
+ /usr/local/include/aasdk/Common/Data.hpp \
+ /usr/local/include/aasdk_proto/ShutdownRequestMessage.pb.h \
+ /usr/include/google/protobuf/port_def.inc \
+ /usr/include/google/protobuf/port_undef.inc \
+ /usr/include/google/protobuf/io/coded_stream.h \
+ /usr/include/x86_64-linux-gnu/sys/param.h \
+ /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
+ /usr/include/x86_64-linux-gnu/asm/param.h \
+ /usr/include/asm-generic/param.h \
+ /usr/include/google/protobuf/stubs/common.h /usr/include/c++/11/iostream \
+ /usr/include/c++/11/set /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /usr/include/google/protobuf/stubs/port.h \
+ /usr/include/google/protobuf/stubs/platform_macros.h \
+ /usr/include/byteswap.h /usr/include/google/protobuf/stubs/macros.h \
+ /usr/include/google/protobuf/stubs/logging.h \
+ /usr/include/google/protobuf/stubs/strutil.h \
+ /usr/include/google/protobuf/stubs/stringpiece.h \
+ /usr/include/google/protobuf/stubs/hash.h \
+ /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/unordered_map.h \
+ /usr/include/c++/11/unordered_set \
+ /usr/include/c++/11/bits/unordered_set.h \
+ /usr/include/google/protobuf/port.h /usr/include/google/protobuf/arena.h \
+ /usr/include/google/protobuf/arena_impl.h \
+ /usr/include/google/protobuf/arenastring.h \
+ /usr/include/google/protobuf/stubs/fastmem.h \
+ /usr/include/google/protobuf/generated_message_table_driven.h \
+ /usr/include/google/protobuf/map.h \
+ /usr/include/google/protobuf/generated_enum_util.h \
+ /usr/include/google/protobuf/message_lite.h \
+ /usr/include/google/protobuf/metadata_lite.h \
+ /usr/include/google/protobuf/stubs/once.h \
+ /usr/include/google/protobuf/map_type_handler.h \
+ /usr/include/google/protobuf/parse_context.h \
+ /usr/include/google/protobuf/io/zero_copy_stream.h \
+ /usr/include/google/protobuf/implicit_weak_message.h \
+ /usr/include/google/protobuf/repeated_field.h \
+ /usr/include/google/protobuf/stubs/casts.h \
+ /usr/include/google/protobuf/wire_format_lite.h \
+ /usr/include/google/protobuf/map_entry_lite.h \
+ /usr/include/google/protobuf/generated_message_util.h \
+ /usr/include/google/protobuf/any.h \
+ /usr/include/google/protobuf/has_bits.h \
+ /usr/include/google/protobuf/map_field_lite.h \
+ /usr/include/google/protobuf/inlined_string_field.h \
+ /usr/include/google/protobuf/generated_message_reflection.h \
+ /usr/include/google/protobuf/descriptor.h \
+ /usr/include/google/protobuf/stubs/mutex.h \
+ /usr/include/google/protobuf/generated_enum_reflection.h \
+ /usr/include/google/protobuf/unknown_field_set.h \
+ /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
+ /usr/include/google/protobuf/stubs/callback.h \
+ /usr/include/google/protobuf/stubs/stl_util.h \
+ /usr/include/google/protobuf/message.h \
+ /usr/include/google/protobuf/extension_set.h \
+ /usr/local/include/aasdk_proto/ShutdownReasonEnum.pb.h \
+ /usr/local/include/aasdk_proto/ShutdownResponseMessage.pb.h \
+ /usr/local/include/aasdk_proto/VersionResponseStatusEnum.pb.h \
+ /usr/local/include/aasdk_proto/ServiceDiscoveryRequestMessage.pb.h \
+ /usr/local/include/aasdk_proto/AudioFocusRequestMessage.pb.h \
+ /usr/local/include/aasdk_proto/AudioFocusTypeEnum.pb.h \
+ /usr/local/include/aasdk_proto/NavigationFocusRequestMessage.pb.h \
+ /usr/local/include/aasdk_proto/PingRequestMessage.pb.h \
+ /usr/local/include/aasdk_proto/PingResponseMessage.pb.h \
+ /usr/local/include/aasdk_proto/VoiceSessionRequestMessage.pb.h \
  /home/pduce/android-auto-qt/build/AndroidAutoQt_autogen/UVLADIE3JM/moc_usbdetector.cpp \
  /home/pduce/android-auto-qt/build/AndroidAutoQt_autogen/UVLADIE3JM/../../../src/usbdetector.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QThread \

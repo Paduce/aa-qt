@@ -85,6 +85,9 @@ set(PROJECT_SOURCES
     ${QML_RESOURCES}
 )
 
+# Get detailed compiler errors in case of problems
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+
 # Create executable
 add_executable(AndroidAutoQt ${PROJECT_SOURCES})
 
